@@ -228,7 +228,7 @@ class Workbench extends ItemView {
       el(b, "span", "ml-hit-location ml-muted", `第 ${hit.locator.line_start}–${hit.locator.line_end} 行 · 固定版本`);
       const excerpt = el(b, "span", "ml-excerpt");
       this.highlight(excerpt, hit.excerpt.replace(/^# /, ""));
-      b.addEventListener("click", () => void this.openHit(hit));
+      b.addEventListener("click", () => void this.openHit(hit, true));
     }
   }
 
@@ -252,7 +252,7 @@ class Workbench extends ItemView {
     el(this.details, "p", "ml-empty", "选择一个命中，查看固定版本、正文定位和可复制引用。");
   }
 
-  async openHit(hit) {
+  async openHit(hit, reveal = false) {
     const generation = ++this.detailGeneration;
     this.activeHit = null;
     this.details.replaceChildren();
@@ -265,9 +265,16 @@ class Workbench extends ItemView {
       this.activeHit = value.hit;
       this.drawDetail(value.hit);
       this.drawResults();
+      if (reveal && this.root.clientWidth < 600) {
+        this.details.scrollIntoView({ block: "start", behavior: "instant" });
+        this.details.tabIndex = -1;
+        this.details.focus({ preventScroll: true });
+      }
     } catch (error) {
       if (generation !== this.detailGeneration || this.closed) return;
+      this.hits = [];
       this.emptyDetail();
+      this.drawResults("旧命中已清除，请重新检索。");
       this.say(message(error), true);
     } finally {
       if (generation === this.detailGeneration && !this.closed) this.details.setAttribute("aria-busy", "false");
@@ -316,7 +323,11 @@ class Workbench extends ItemView {
       this.say("引用已复制，包含来源、修订、片段和字符范围。");
     } catch (error) {
       if (this.closed || generation !== this.detailGeneration) return;
-      if (error.code) { this.emptyDetail(); this.drawResults(); }
+      if (error.code) {
+        this.hits = [];
+        this.emptyDetail();
+        this.drawResults("旧命中已清除，请重新检索。");
+      }
       this.say(error.code ? message(error) : "剪贴板不可用，请选择下方引用手动复制。", true);
     } finally { if (!this.closed) copyButton.disabled = false; }
   }

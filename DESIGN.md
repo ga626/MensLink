@@ -11,6 +11,13 @@ typography:
     fontFamily: var(--font-text)
     fontSize: 15px
     lineHeight: 1.9
+  document-title:
+    fontFamily: var(--font-interface)
+    fontSize: 22px
+    fontWeight: 600
+  identity:
+    fontFamily: var(--font-monospace)
+    fontSize: 12px
 rounded:
   small: 4px
 spacing:
@@ -47,7 +54,7 @@ spacing:
 
 ## Components
 
-来源按钮筛选当前已返回命中；结果按钮通过 `aria-pressed` 标注选择。详情先 fetch 再呈现固定身份；复制前再检查可读性。加载标注 `aria-busy`，结果和错误用 live region反馈，焦点保留2px强调色边框。
+来源按钮筛选当前已返回命中；结果按钮通过 `aria-pressed` 标注选择。详情先 fetch 再呈现固定身份；复制前再检查可读性，读取失败清除旧命中。窄窗口点击命中后滚动并聚焦详情。加载标注 `aria-busy`，结果和错误用 live region反馈，焦点保留2px强调色边框。命中词的2px圆角和完整身份的11px展开区是局部值，不扩为全局尺寸体系。
 
 唯一过渡为正文读取后的180ms背景淡出；尊重 `prefers-reduced-motion`。打开即显示工作内容，不编排页面入场。
 
