@@ -1,6 +1,8 @@
 # 本机证据、工具链、测试库与生成物
 local/
 .codex/
+.impeccable/*
+!.impeccable/design.json
 **/bin/
 **/obj/
 **/node_modules/

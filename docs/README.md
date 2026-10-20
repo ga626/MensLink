@@ -11,5 +11,6 @@
 | 已定取舍 | [本机开发](adr/0001-local-development.md)、[运行时与存储](adr/0002-runtime-and-storage.md)、[跨块检索](adr/0003-lexical-boundaries.md) |
 | 检查与依赖 | [定向验收](contributing/verification.md)、[维护台账](maintainers/dependencies.md) |
 | 用户与发布边界 | [隐私](user/privacy.md)、[公开与发布](release/README.md) |
+| 界面评审 | [三栏开发预览](user/development-preview.md)、[设计约定](../DESIGN.md) |
 
 既有 v0.3 完整计划、命名及技术调研原件在维护者本地保留；原始报告、绝对路径、网络响应和运行回执不直接进入公开仓库。公开摘要不取消既有目标，实际实现以合同、源码与检查为准，不能把本地历史报告当作当前授权。
