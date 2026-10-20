@@ -21,6 +21,12 @@ jobs:
         run: python3 scripts/check_repository.py
       - name: Project structure
         run: python3 scripts/check_project.py
+      - name: Obsidian read boundary
+        run: |
+          node --check integrations/obsidian/main.js
+          node --check integrations/obsidian/reader.js
+          node --test tests/obsidian/reader.test.js
+          python3 -m py_compile scripts/package_preview.py scripts/start_preview.py
   foundation:
     runs-on: windows-latest
     timeout-minutes: 15

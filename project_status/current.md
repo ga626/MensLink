@@ -1,6 +1,6 @@
 # MensLink 当前状态
 
-更新：2026-10-20。已完成S1工程骨架和本机文字闭环，并进入路线验证；没有可视原型或正式产品。[当前执行计划](../docs/plans/validation-prototype-github.md) 与 [实现合同](../docs/reference/implemented-contract.md) 区分规划和真实能力。
+更新：2026-10-20。已完成S1工程骨架、本机文字闭环与若干路线探针，新增三栏只读开发预览；没有正式产品。[当前执行计划](../docs/plans/validation-prototype-github.md) 与 [实现合同](../docs/reference/implemented-contract.md) 区分规划和真实能力。
 
 ## 已验证
 
@@ -30,4 +30,6 @@ SQLite持久任务模型7项通过，含取消/发布竞争、真实子进程提
 
 V04–V06仍需落实管理配对、产品持久队列与Codex原生接入，不能写“所有路线已通过”。PDF/网页、语义质量、平台同步、安装升级、Win11/干净环境与用户体验未验；没有连接私人Vault、平台账号或改全局Codex配置。
 
-下一步继续关键路线，再做Obsidian MD/TXT最小原型，给用户看效果后才扩大功能。
+用户已选择“三栏资料工作台”：左侧合成资料来源、中间真实命中、右侧固定版本片段及引用，继承 Obsidian 主题。新增原生 CommonJS 插件，无 npm 运行依赖；通过只读 CLI 调用 status/search/fetch，不扫描 Vault、不直写数据库。合成导入由显式开发启动器完成；配对与持久任务没有伪装成界面功能。见 [预览说明](../docs/user/development-preview.md)。
+
+预览候选必须从干净 Git 身份生成，宿主加载与交互结果绑定本机回执和确切源码 SHA；不能只凭源码存在声称通过。先展示这个范围的效果并等待用户评审，期间只修当前缺陷，不扩大到 PDF、平台同步或安装。完整 V04–V06 仍按后续计划完成。

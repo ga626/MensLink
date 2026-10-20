@@ -8,6 +8,7 @@
 | `adapters/MensLink.Sqlite/` | 样机台账、不可变修订、FTS5、权限和发布过滤 |
 | `apps/MensLink.Cli/` | 开发管理命令及只读管道服务；不承担完整插件界面 |
 | `integrations/codex/MensLink.Mcp/` | 官方 SDK stdio 桥；只提供三个读取工具 |
+| `integrations/obsidian/` | 原生主题的三栏只读开发预览；通过受限 CLI 读取合成库，不直写数据库 |
 | `tests/` | 核心与协议检查程序；`fixtures/` 只放合成公开样本 |
 | `config/` | 工具链、结构及阶段任务清单；不含认证 |
 | `scripts/` | 本项目实际可运行的引导、构建、演示与结构检查入口 |
@@ -18,6 +19,8 @@
 
 依赖方向：CLI → SQLite → Core；MCP → Core → 内部读管道 → CLI 读服务 → SQLite。Core 不知道 UI 或 SQLite；MCP 进程不打开数据库，不加载模型。
 
-`bin/obj` 是生成物；包锁文件是源码审阅材料。Obsidian 插件、PDF/网页适配器、安装器和平台扩展尚未创建，待有实际实现再加入结构清单。程序安装根、正式内部数据根与 Vault 是未来运行时目录，不在源码树创建私人资料。
+`bin/obj` 是生成物；包锁文件是源码审阅材料。PDF/网页适配器、安装器和平台扩展尚未创建，待有实际实现再加入结构清单。程序安装根、正式内部数据根与 Vault 是未来运行时目录，不在源码树创建私人资料。
+
+`scripts/package_preview.py` 从干净提交导出并冻结开发制品，`scripts/start_preview.py` 验摘要后创建独立 profile/Vault。它们仅作项目内开发预览，依赖开发机 Python 与项目 .NET runtime；不构成普通用户安装方案。界面约定见 [DESIGN.md](DESIGN.md)。
 
 `scripts/check_repository.py` 审核受 Git 跟踪的公开文件；`scripts/check_project.py` 检查结构、链接、SDK 和依赖方向。`docs/adr/0003-lexical-boundaries.md` 记录跨块检索、中文输出预算及旧库增补合同。

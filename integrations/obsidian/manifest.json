@@ -1,0 +1,9 @@
+{
+  "id": "menslink-preview",
+  "name": "MensLink 开发预览",
+  "version": "0.1.0",
+  "minAppVersion": "1.14.4",
+  "description": "三栏资料工作台：在合成测试库中检索、阅读固定版本并复制引用。",
+  "author": "MensLink contributors",
+  "isDesktopOnly": true
+}

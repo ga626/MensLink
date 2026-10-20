@@ -160,6 +160,34 @@
     {
       "path": ".github/workflows/quality.yml",
       "kind": "file"
+    },
+    {
+      "path": "integrations/obsidian",
+      "kind": "directory"
+    },
+    {
+      "path": "tests/obsidian",
+      "kind": "directory"
+    },
+    {
+      "path": "tests/fixtures/workbench",
+      "kind": "directory"
+    },
+    {
+      "path": "scripts/package_preview.py",
+      "kind": "file"
+    },
+    {
+      "path": "scripts/start_preview.py",
+      "kind": "file"
+    },
+    {
+      "path": "docs/user/development-preview.md",
+      "kind": "file"
+    },
+    {
+      "path": "DESIGN.md",
+      "kind": "file"
     }
   ],
   "inherited_documents": [
@@ -180,7 +208,7 @@
     "integrations"
   ],
   "not_yet_implemented": [
-    "Obsidian插件",
+    "完整Obsidian管理插件",
     "PDF/网页解析",
     "持久任务",
     "平台同步",

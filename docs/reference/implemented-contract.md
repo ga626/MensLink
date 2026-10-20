@@ -40,3 +40,7 @@
 典型错误：`outside_scope`、`links_not_allowed`、`changed_since_preview`、`encoding_not_supported`、`empty_text`、`invalid_argument`、`policy_change_requires_review`、`source_withdrawn`、`not_authorized`、`version_not_found_or_not_authorized`、`budget_too_small`、`service_unavailable`、`index_unavailable`。
 
 本阶段未提供正式安装包、Codex 自动注册或私人库接入说明。开发演示与协议探针的真实回执见 [当前状态](../../project_status/current.md)。
+
+## Obsidian 开发预览
+
+`integrations/obsidian` 在独立合成 Vault 中提供三栏工作台，通过 framework-dependent CLI 执行人的 `status/search/fetch`。不改变 MCP 的 Agent 权限过滤；不接入管理写通道。来源清单来自启动器的合成导入回执，来源筛选只作用于当前已返回命中，详情为固定版本的单个片段。复制前重新 fetch，资料正文只写入 textContent。启动、制品摘要及验收边界见 [开发预览](../user/development-preview.md)。
