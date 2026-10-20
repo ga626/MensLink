@@ -1,0 +1,22 @@
+name: 问题反馈
+description: 使用脱敏信息和最小合成输入描述问题。
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: 版本与环境
+      description: 程序构建、Windows、宿主和安装渠道；未使用的项可省略。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤与预期、实际结果
+      description: 请勿上传账号、Cookie、token、私人正文、数据库或未脱敏日志。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 合成样本和检查结果
+      description: 说明故障发生在开发构建、CLI、协议、插件或真实宿主的哪一层。
