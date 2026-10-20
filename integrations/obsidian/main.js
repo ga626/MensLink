@@ -1,7 +1,6 @@
 "use strict";
 
 const { Plugin, ItemView, Notice, setIcon } = require("obsidian");
-const { PreviewReader } = require("./reader");
 const VIEW = "menslink-workbench";
 
 const MESSAGES = {
@@ -131,7 +130,7 @@ class Workbench extends ItemView {
     this.emptyDetail();
     this.drawResults("正在连接本地资料库…");
     try {
-      this.reader = new PreviewReader(this.plugin.config, this.app.vault.adapter.getBasePath());
+      this.reader = new this.plugin.Reader(this.plugin.config, this.app.vault.adapter.getBasePath());
       const status = await this.reader.read("status");
       if (this.closed) return;
       this.observe(status);
@@ -325,6 +324,9 @@ class Workbench extends ItemView {
 
 module.exports = class MensLinkPreview extends Plugin {
   async onload() {
+    // Obsidian 的 main.js 在宿主上下文求值，普通相对 require 不以插件目录为根。
+    const readerPath = require("node:path").join(this.app.vault.adapter.getBasePath(), this.manifest.dir, "reader.js");
+    this.Reader = require(readerPath).PreviewReader;
     this.config = await this.loadData();
     this.registerView(VIEW, leaf => new Workbench(leaf, this));
     this.addRibbonIcon("library", "MensLink 资料工作台", () => void this.openWorkbench());

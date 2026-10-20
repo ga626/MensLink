@@ -109,9 +109,14 @@ def main():
         text += " -RedirectStandardError " + quote(str(work / "host.stderr.log"))
         text += "\n$previewHost.Id | Set-Content -LiteralPath " + quote(str(work / "host-pid.txt")) + " -Encoding UTF8\n"
         launcher.write_text(text, encoding="utf-8-sig")
-        result = subprocess.run(["pwsh", "-NoProfile", "-File", str(launcher)], capture_output=True, text=True, encoding="utf-8", timeout=20)
+        # GUI 子进程可能继承 PowerShell 的管道句柄；写文件避免已启动却等不到 EOF。
+        with (work / "launch.stdout.log").open("w", encoding="utf-8") as out, \
+             (work / "launch.stderr.log").open("w", encoding="utf-8") as err:
+            result = subprocess.run(["pwsh", "-NoProfile", "-File", str(launcher)], stdout=out, stderr=err, timeout=20)
         if result.returncode:
-            raise SystemExit("test host launch failed; " + result.stderr)
+            receipt["result"] = "launch_failed"
+            save()
+            raise SystemExit("test host launch failed; see launch.stderr.log")
         receipt.update(host_pid=int((work / "host-pid.txt").read_text(encoding="utf-8-sig").strip()),
                        host_argv=argv, result="launched_not_yet_verified")
         save()
