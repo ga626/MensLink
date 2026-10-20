@@ -18,12 +18,16 @@
 
 ## GitHub与分支
 
-仓库为`ga626/MensLink`，公开、main、MIT、Issues与私密漏洞报告。Bootstrap首推只有.editorconfig、.gitattributes、.gitignore、LICENSE；治理PR建立公开入口、只读CI与保护，产品源码随后经独立PR接入。实时提交、PR及CI以GitHub和实际Git状态为准，不在本文虚构候选SHA或已合并状态。
+仓库为`ga626/MensLink`，公开、main、MIT、Issues与私密漏洞报告。Bootstrap首推只有.editorconfig、.gitattributes、.gitignore、LICENSE；治理PR建立公开入口、只读CI与保护，治理PR #1与产品源码PR #2已合并，实际保护要求repository与foundation。实时提交、PR及CI以GitHub和实际Git状态为准，不在本文虚构候选SHA或已合并状态。
 
 ## 未验与接续
 
-Obsidian 1.14.4安装已定位。合成Vault与项目独立配置启动探针没有拿到插件通过回执，发现共享CLI管道冲突，任务测试窗口已关闭；日用会话保持。Node只读IPC成功不代替真实插件、管理配对、人改或离线重连。
+Obsidian 1.14.4 的项目独立 profile 与合成 Vault 已完成真实插件加载、库/schema握手、search→fetch固定引用、错库拒绝、服务离线与重启重连。早期未启用社区插件的失败保留，不再将共享CLI管道冲突误作插件不可用结论。
 
-V03–V06仍需真实插件通信、管理通道、人工编辑保护、持久任务和Codex原生接入。PDF/网页、语义质量、平台同步、安装升级、Win11/干净环境与用户体验仍未验；没有连接私人Vault、平台账号或改全局Codex配置。
+真实宿主的安全存储探针通过合成凭据写入、无明文检查、应用重启后解密与删除；`vault.process` 的人改基线冲突与独立人工笔记保留也通过。以上为技术探针，管理配对协议及完整插件尚未实现。
+
+SQLite持久任务模型7项通过，含取消/发布竞争、真实子进程提交前退出回滚、提交后退出幂等与worker租约；尚未接入产品Catalog真实导入。路线选择及落实顺序见 [ADR 0004](../docs/adr/0004-prototype-routes.md)。
+
+V04–V06仍需落实管理配对、产品持久队列与Codex原生接入，不能写“所有路线已通过”。PDF/网页、语义质量、平台同步、安装升级、Win11/干净环境与用户体验未验；没有连接私人Vault、平台账号或改全局Codex配置。
 
 下一步继续关键路线，再做Obsidian MD/TXT最小原型，给用户看效果后才扩大功能。

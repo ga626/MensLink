@@ -1,5 +1,7 @@
 # 文档入口
 
+最新路线取舍见 [原型管理、人改与任务](adr/0004-prototype-routes.md)：探针结果与待集成产品能力分开记录。
+
 从 [当前状态](../project_status/current.md)、[产品范围](product.md) 和 [技术验证与原型计划](plans/validation-prototype-github.md) 开始。
 
 | 目的 | 入口 |
