@@ -1,0 +1,189 @@
+{
+  "schema": "menslink-project-structure/v1",
+  "entries": [
+    {
+      "path": "AGENTS.md",
+      "kind": "file"
+    },
+    {
+      "path": "README.md",
+      "kind": "file"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "kind": "file"
+    },
+    {
+      "path": "SECURITY.md",
+      "kind": "file"
+    },
+    {
+      "path": "SUPPORT.md",
+      "kind": "file"
+    },
+    {
+      "path": "LICENSE",
+      "kind": "file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "kind": "file"
+    },
+    {
+      "path": "STRUCTURE.md",
+      "kind": "file"
+    },
+    {
+      "path": "global.json",
+      "kind": "file"
+    },
+    {
+      "path": "Directory.Build.props",
+      "kind": "file"
+    },
+    {
+      "path": "NuGet.Config",
+      "kind": "file"
+    },
+    {
+      "path": "MensLink.slnx",
+      "kind": "file"
+    },
+    {
+      "path": "project_status/current.md",
+      "kind": "file"
+    },
+    {
+      "path": "docs/README.md",
+      "kind": "file"
+    },
+    {
+      "path": "docs/reference/implemented-contract.md",
+      "kind": "file"
+    },
+    {
+      "path": "config/toolchain.json",
+      "kind": "file"
+    },
+    {
+      "path": "scripts/dev.ps1",
+      "kind": "file"
+    },
+    {
+      "path": "scripts/bootstrap.ps1",
+      "kind": "file"
+    },
+    {
+      "path": "scripts/demo.ps1",
+      "kind": "file"
+    },
+    {
+      "path": "scripts/check_project.py",
+      "kind": "file"
+    },
+    {
+      "path": "modules/MensLink.Core",
+      "kind": "directory"
+    },
+    {
+      "path": "adapters/MensLink.Sqlite",
+      "kind": "directory"
+    },
+    {
+      "path": "apps/MensLink.Cli",
+      "kind": "directory"
+    },
+    {
+      "path": "integrations/codex/MensLink.Mcp",
+      "kind": "directory"
+    },
+    {
+      "path": "tests/MensLink.Checks",
+      "kind": "directory"
+    },
+    {
+      "path": "tests/MensLink.McpChecks",
+      "kind": "directory"
+    },
+    {
+      "path": "tests/fixtures",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/architecture",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/adr",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/contributing",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/maintainers",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/release",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/user",
+      "kind": "directory"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE",
+      "kind": "directory"
+    },
+    {
+      "path": "docs/product.md",
+      "kind": "file"
+    },
+    {
+      "path": "docs/development.md",
+      "kind": "file"
+    },
+    {
+      "path": "docs/plans/validation-prototype-github.md",
+      "kind": "file"
+    },
+    {
+      "path": "docs/adr/0003-lexical-boundaries.md",
+      "kind": "file"
+    },
+    {
+      "path": "scripts/check_repository.py",
+      "kind": "file"
+    },
+    {
+      "path": ".github/workflows/quality.yml",
+      "kind": "file"
+    }
+  ],
+  "inherited_documents": [
+    "docs/reference/2026-10-20-MensLink产品计划书.md",
+    "docs/research/2026-10-20-技术复查与组织继承.md",
+    "docs/research/2026-10-20-短名称组合候选.md",
+    "docs/research/2026-10-20-项目命名筛选与查重.md"
+  ],
+  "generated_roots": [
+    "local",
+    "**/bin",
+    "**/obj"
+  ],
+  "product_source_roots": [
+    "modules",
+    "adapters",
+    "apps",
+    "integrations"
+  ],
+  "not_yet_implemented": [
+    "Obsidian插件",
+    "PDF/网页解析",
+    "持久任务",
+    "平台同步",
+    "安装器"
+  ]
+}

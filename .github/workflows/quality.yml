@@ -19,3 +19,31 @@ jobs:
           persist-credentials: false
       - name: Repository contracts
         run: python3 scripts/check_repository.py
+      - name: Project structure
+        run: python3 scripts/check_project.py
+  foundation:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_NOLOGO: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+      - name: Locate runtime for protocol child processes
+        shell: pwsh
+        run: |
+          $dotnetRoot = Split-Path -Parent (Get-Command dotnet).Source
+          "DOTNET_ROOT=$dotnetRoot" >> $env:GITHUB_ENV
+      - name: Restore locked dependencies
+        run: dotnet restore MensLink.slnx --locked-mode
+      - name: Build foundation
+        run: dotnet build MensLink.slnx --no-restore
+      - name: Core contracts
+        run: dotnet run --no-build --project tests/MensLink.Checks
+      - name: MCP protocol contracts
+        run: dotnet run --no-build --project tests/MensLink.McpChecks

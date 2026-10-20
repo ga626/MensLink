@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="modules/MensLink.Core/MensLink.Core.csproj" />
+  <Project Path="adapters/MensLink.Sqlite/MensLink.Sqlite.csproj" />
+  <Project Path="apps/MensLink.Cli/MensLink.Cli.csproj" />
+  <Project Path="integrations/codex/MensLink.Mcp/MensLink.Mcp.csproj" />
+  <Project Path="tests/MensLink.Checks/MensLink.Checks.csproj" />
+  <Project Path="tests/MensLink.McpChecks/MensLink.McpChecks.csproj" />
+</Solution>
