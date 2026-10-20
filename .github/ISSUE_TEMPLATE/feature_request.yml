@@ -1,0 +1,16 @@
+name: 功能建议
+description: 描述使用场景与可观察的验收结果。
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 场景与当前困难
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 希望完成的任务与验收方式
+      description: 如涉及平台、资料权限、媒体或外发，请说明范围。
+    validations:
+      required: true
